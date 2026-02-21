@@ -1,0 +1,94 @@
+{
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noExtraBooleanCast": "warn",
+        "noMultipleSpacesInRegularExpressionLiterals": "warn",
+        "noUselessCatch": "warn",
+        "noWith": "error"
+      },
+      "correctness": {
+        "noConstAssign": "error",
+        "noConstantCondition": "warn",
+        "noEmptyCharacterClassInRegex": "error",
+        "noInnerDeclarations": "warn",
+        "noInvalidUseBeforeDeclaration": "error",
+        "noNewSymbol": "error",
+        "noNonoctalDecimalEscape": "error",
+        "noPrecisionLoss": "error",
+        "noSelfCompare": "error",
+        "noSetterReturn": "error",
+        "noStringCaseMismatch": "error",
+        "noUndeclaredVariables": "error",
+        "noUnreachable": "error",
+        "noUnreachableSuper": "error",
+        "useValidForDirection": "error",
+        "useArrayLiterals": "warn",
+        "useIsNan": "error"
+      },
+      "security": {
+        "noEval": "error"
+      },
+      "style": {
+        "noImplicitBoolean": "warn",
+        "noParameterAssign": "warn",
+        "noVar": "error",
+        "useConst": "error",
+        "useTemplate": "warn"
+      },
+      "suspicious": {
+        "noAsyncPromiseExecutor": "warn",
+        "noCatchAssignInNestFinally": "error",
+        "noClassAssign": "error",
+        "noCommentText": "off",
+        "noControlCharacterInRegex": "error",
+        "noDebugger": "warn",
+        "noDuplicateCase": "error",
+        "noDuplicateClassMembers": "error",
+        "noDuplicateObjectKeys": "error",
+        "noDuplicateParameters": "error",
+        "noExplicitAny": "warn",
+        "noFallthroughSwitchClause": "error",
+        "noFunctionAssign": "error",
+        "noGlobalAssign": "error",
+        "noImportAssign": "error",
+        "noMisleadingCharacterClass": "error",
+        "noMisleadingInstantiator": "error",
+        "noPrototypeBuiltins": "warn",
+        "noRedeclare": "error",
+        "noShadowRestrictedNames": "error",
+        "noShadow": "off",
+        "noUnsafeDeclarationMerging": "error",
+        "noUnsafeFinally": "error",
+        "noUnsafeNegationOperand": "error",
+        "useAwait": "warn",
+        "useGetterReturn": "error",
+        "useValidTypeof": "error"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentSize": 2,
+    "lineWidth": 100,
+    "lineEnding": "lf"
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "es5",
+      "arrowParentheses": "asNeeded",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "semicolons": "always",
+      "singleQuotes": false
+    }
+  }
+}
