@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { config } from "./config/env.ts";
-import { initializeDatabase, closeDatabase } from "./infrastructure/database.ts";
+import { shardManager } from "./infrastructure/database.ts";
 import { errorHandler } from "./middleware/validation.ts";
 import userRoutes from "./presentation/routes/user.routes.ts";
 
@@ -26,9 +26,8 @@ app.use(errorHandler);
 // Initialize and start server
 const startServer = async (): Promise<void> => {
   try {
-    // Initialize database
-    initializeDatabase();
-    console.log("✓ Database connected");
+    // Initialize shard connections
+    shardManager.initialize();
 
     // Start server
     app.listen(config.port, () => {
@@ -44,13 +43,13 @@ const startServer = async (): Promise<void> => {
 // Graceful shutdown
 process.on("SIGINT", async () => {
   console.log("Shutting down gracefully...");
-  await closeDatabase();
+  await shardManager.closeAll();
   process.exit(0);
 });
 
 process.on("SIGTERM", async () => {
   console.log("Shutting down gracefully...");
-  await closeDatabase();
+  await shardManager.closeAll();
   process.exit(0);
 });
 

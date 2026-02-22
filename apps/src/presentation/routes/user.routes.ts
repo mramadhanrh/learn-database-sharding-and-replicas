@@ -45,7 +45,7 @@ router.put(
   "/:id",
   validate(GetUserSchema, "params"),
   validate(UpdateUserSchema, "body"),
-  asyncHandler(async (req: Request<{ id: string }>, res: Response) => {
+  asyncHandler(async (req: Request, res: Response) => {
     const user = await userService.updateUser(req.params.id as string, req.body);
     if (!user) throw new NotFoundError("User");
     res.status(200).json({ success: true, data: user });
@@ -56,8 +56,8 @@ router.put(
 router.delete(
   "/:id",
   validate(GetUserSchema, "params"),
-  asyncHandler(async (req: Request<{ id: string }>, res: Response) => {
-    const success = await userService.deleteUser(req.params.id);
+  asyncHandler(async (req: Request, res: Response) => {
+    const success = await userService.deleteUser(req.params.id as string);
     if (!success) throw new NotFoundError("User");
     res.status(200).json({ success: true, message: "User deleted successfully" });
   }),
