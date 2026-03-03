@@ -1,5 +1,3 @@
-version: "3.8"
-
 # Local 2-shard setup: each shard is a separate Postgres instance.
 # Replicas are omitted locally (the app points reads at the same host).
 # In production, AWS RDS handles replication automatically.
@@ -13,7 +11,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: app_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - shard0_data:/var/lib/postgresql/data
       - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
@@ -31,7 +29,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: app_db
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
       - shard1_data:/var/lib/postgresql/data
       - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql

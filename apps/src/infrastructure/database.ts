@@ -72,6 +72,9 @@ class ShardManager {
   getShardIndex(id: string): number {
     const hex = id.replace(/-/g, "").slice(0, 8);
     const num = parseInt(hex, 16);
+
+    console.log({ id, hex, num, modulo: num % this.shards.length });
+
     return num % this.shards.length;
   }
 
